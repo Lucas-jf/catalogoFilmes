@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" tytpe=" text/css" href="/css/main.css">
-    <title>catalogfilmes</title>
+    <title>Catálogo de Filmes</title>
 </head>
 
 <body>
-    <form>
-        <div class="pesquisaitem">
-            <label for="pesq_nome">Nome:</label>
-            <input type="text" id="pesq_nome" name="pesq_nome">
-        </div>
-    </form>
-    <h1>SEM FILMES ADICIONADOS</h1>
-    <a href="/html/adicionarfilme.html">
-        <button id="bt_adicionar">ADICIONAR</button>
-    </a>
-</body>
 
+    <section id="comFilme">
+        <input type="text" id="pesq_nome" name="pesq_nome" placeholder="Pesquisar filme">
+    </section>
+    <section id="semFilme">
+        <h1>NENHUM FILME ADICIONADO</h1>
+        <p>Adicione algum filme para começar</p>
+    </section>
+    <button id="bt_adicionar" onclick="window.location.href='/html/adicionarfilme.html';">ADICIONAR</button>
+    <script type="text/javascript" src="/js/main.js"></script>
+</body>
 </html>
