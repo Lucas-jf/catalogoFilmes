@@ -1,45 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" tytpe=" text/css" href="/css/main.css">
-    <title>catalogfilmes</title>
+    <title>Catálogo de Filmes</title>
 </head>
 
 <body>
-    <form>
-        <div class="inputItem">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome">
-        </div>
-        <div class="inputItem">
-            <label for="diretor">Diretor:</label>
-            <input type="text" id="diretor" name="diretor">
-        </div>
-        <div class="inputItem">
-            <label for="diretor">Faixa etária:</label>
-            <input type="text" id="faixaE" name="faixaE">
-        </div>
-        <div class="inputItem">
-            <label for="diretor">Síntese:</label>
-            <input type="text" id="sintese" name="sintese">
-        </div>
-        <div class="inputItem">
-            <label for="diretor">Nota:</label>
-            <input type="text" id="nota" name="nota">
-        </div>
-        <div class="inputItem">
-            <label for="imagem">Imagem:</label>
-            <input type="url" id="imagem" name="imagem">
-        </div>
-
-        <a href="../index.html">
-            <input id="submitButton" type="submit" value="Salvar">
-        </a>
+    <form action="javascript:;" onsubmit="cadastraFilme()">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome">
+        <label for="diretor">Diretor:</label>
+        <input type="text" name="diretor">
+        <label for="faixaE">Faixa etária:</label>
+        <input type="number" min="0" max="18" name="faixaE">
+        <label for="sintese">Síntese:</label>
+        <input type="text" name="sintese">
+        <label for="nota">Nota:</label>
+        <input type="number" min="0" max="10" name="nota">
+        <label for="imagem">URL da Imagem:</label>
+        <input type="url" id="imagem" name="imagem">
+        <button type="submit">Salvar</button>
     </form>
- 
+    <script type="text/javascript" src="/js/main.js"></script>
 </body>
-
 </html>
