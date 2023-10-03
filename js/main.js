@@ -131,14 +131,14 @@ function getObjectLocalStorage(key){
     return value && JSON.parse(value);
 }
 
-busca.addEventListener("input", () =>{
+/*busca.addEventListener("input", () =>{
     const textoBusca = busca.value.toLowerCase();
-    const sections = content.getElementsByTagName("section");
+    const sections = content.getElementsById(filmes.nome);
     for (let filme of filmes){
         if(!filme[0].toLowerCase().includes(textoBusca)){
-            sections[indice].style.display = "none";
+            sections[filme].style.display = "none";
         } else {
-            sections[indice].style.display = "";
+            sections[filme].style.display = "";
         }
     }
-})
+})*/
