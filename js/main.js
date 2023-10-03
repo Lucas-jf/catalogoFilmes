@@ -1,4 +1,5 @@
-const content = document.getElementById("comFilmes");
+const content = document.getElementById("comFilme");
+const busca = document.getElementById("pesq_nome");
 
 let filmes = getObjectLocalStorage("filmes");
 
@@ -74,7 +75,6 @@ const cadastraFilme = () => {
 
 const criaSection = (nome, diretor, faixaE, sintese, nota, imagem,) => {
     const section = document.createElement("section");
-    const aImg = document.createElement("a");
     const img = document.createElement("img");
     const h2 = document.createElement("h2");
     const pDiretor = document.createElement("p");
@@ -82,14 +82,11 @@ const criaSection = (nome, diretor, faixaE, sintese, nota, imagem,) => {
     const pSintese = document.createElement("p");
     const pNota = document.createElement("p");
     
-    aImg.setAttribute("href", "/html/informacoes.html");
-    aImg.setAttribute("onclick", "abrirInformacoes(event)");
     img.setAttribute("src", imagem);
     img.setAttribute("alt", `Capa do filme ${nome}`);
     section.setAttribute("id", nome);
 
-    aImg.appendChild(img);
-    section.appendChild(aImg);
+    section.appendChild(img);
     section.appendChild(h2);
     section.appendChild(pDiretor);
     section.appendChild(pFaixa);
@@ -105,7 +102,7 @@ const criaSection = (nome, diretor, faixaE, sintese, nota, imagem,) => {
     return section;
 }
 
-const abrirInformacoes = (event) => {
+/*const abrirInformacoes = (event) => {
     let id = event.target.id;
 
     filmes.forEach(filme => {
@@ -123,7 +120,7 @@ const abrirInformacoes = (event) => {
             )
         }
     });
-}
+}*/
 
 function setObjectLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
@@ -133,3 +130,15 @@ function getObjectLocalStorage(key){
     var value = localStorage.getItem(key);
     return value && JSON.parse(value);
 }
+
+busca.addEventListener("input", () =>{
+    const textoBusca = busca.value.toLowerCase();
+    const sections = content.getElementsByTagName("section");
+    for (let filme of filmes){
+        if(!filme[0].toLowerCase().includes(textoBusca)){
+            sections[indice].style.display = "none";
+        } else {
+            sections[indice].style.display = "";
+        }
+    }
+})
