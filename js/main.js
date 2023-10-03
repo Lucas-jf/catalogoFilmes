@@ -22,6 +22,17 @@ window.addEventListener("load", () => {
     }
 })
 
+window.addEventListener("load", () => {
+    let quantidade = filmes.length;
+    if (quantidade == 0) {
+        document.getElementById("comFilme").style.display = "none";
+        document.getElementById("semFilme").style.display = "";
+    } else {
+        document.getElementById("comFilme").style.display = "";
+        document.getElementById("semFilme").style.display = "none";
+    }
+});
+
 const cadastraFilme = () => {
     const nome = document.getElementsByName("nome")[0];
     const diretor = document.getElementsByName("diretor")[0];
@@ -72,6 +83,7 @@ const criaSection = (nome, diretor, faixaE, sintese, nota, imagem,) => {
     const pNota = document.createElement("p");
     
     aImg.setAttribute("href", "/html/informacoes.html");
+    aImg.setAttribute("onclick", "abrirInformacoes(event)");
     img.setAttribute("src", imagem);
     img.setAttribute("alt", `Capa do filme ${nome}`);
     section.setAttribute("id", nome);
@@ -93,16 +105,25 @@ const criaSection = (nome, diretor, faixaE, sintese, nota, imagem,) => {
     return section;
 }
 
-window.addEventListener("load", () => {
-    let quantidade = filmes.length;
-    if (quantidade == 0) {
-        document.getElementById("comFilme").style.display = "none";
-        document.getElementById("semFilme").style.display = "";
-    } else {
-        document.getElementById("comFilme").style.display = "";
-        document.getElementById("semFilme").style.display = "none";
-    }
-});
+const abrirInformacoes = (event) => {
+    let id = event.target.id;
+
+    filmes.forEach(filme => {
+        if (filme[0] == id) {
+            document.getElementById(infoFilme)
+            .appendChild(
+                criaSection(
+                    filme.nome, 
+                    filme.diretor,
+                    filme.faixaE,
+                    filme.sintese,
+                    filme.nota,
+                    filme.imagem,
+                )
+            )
+        }
+    });
+}
 
 function setObjectLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
